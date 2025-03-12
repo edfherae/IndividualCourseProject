@@ -32,7 +32,7 @@
 			tabControl1 = new TabControl();
 			tabPage1 = new TabPage();
 			dateTimePickerYearOfRelease = new DateTimePicker();
-			pictureBox1 = new PictureBox();
+			pictureBoxPhoneImage = new PictureBox();
 			labelPhoto = new Label();
 			labelYOR = new Label();
 			comboBoxCountry = new ComboBox();
@@ -42,53 +42,66 @@
 			textBoxModel = new TextBox();
 			labelModel = new Label();
 			tabPage2 = new TabPage();
-			richTextBox1 = new RichTextBox();
-			label9 = new Label();
+			richTextBoxAdditionalCharacteristics = new RichTextBox();
 			label8 = new Label();
 			label7 = new Label();
-			numericUpDown3 = new NumericUpDown();
-			groupBox1 = new GroupBox();
+			numericUpDownWeight = new NumericUpDown();
+			groupBoxCommunicationGeneration = new GroupBox();
 			radioButton5G = new RadioButton();
 			radioButton4G = new RadioButton();
 			label6 = new Label();
 			comboBoxSimType = new ComboBox();
 			labelPM = new Label();
-			trackBarPM = new TrackBar();
+			trackBarROM = new TrackBar();
 			label5 = new Label();
 			labelOM = new Label();
 			label4 = new Label();
-			trackBarOM = new TrackBar();
-			numericUpDown2 = new NumericUpDown();
+			trackBarRAM = new TrackBar();
+			numericUpDownNumberOfCameras = new NumericUpDown();
 			label3 = new Label();
-			numericUpDown1 = new NumericUpDown();
+			numericUpDownDiagonal = new NumericUpDown();
 			labelDiagonal = new Label();
 			tabPage3 = new TabPage();
-			maskedTextBox1 = new MaskedTextBox();
+			numericUpDownPoints = new NumericUpDown();
+			textBoxPrice = new TextBox();
+			panel1 = new Panel();
+			maskedTextBox3 = new MaskedTextBox();
+			radioButton2 = new RadioButton();
+			maskedTextBox4 = new MaskedTextBox();
+			radioButton1 = new RadioButton();
+			checkBoxPromotion = new CheckBox();
+			checkBoxPoints = new CheckBox();
+			label9 = new Label();
+			dateTimePickerWarrantyPeriodEnd = new DateTimePicker();
+			label12 = new Label();
+			labelWarrantyPeriod = new Label();
+			numericUpDownWarrantyPeriod = new NumericUpDown();
+			label11 = new Label();
+			label10 = new Label();
+			maskedTextBoxYearOfProduction = new MaskedTextBox();
 			label1 = new Label();
 			label2 = new Label();
 			menuStrip1 = new MenuStrip();
 			FileToolStripMenuItem = new ToolStripMenuItem();
-			сохранитьToolStripMenuItem = new ToolStripMenuItem();
-			загрузитьToolStripMenuItem = new ToolStripMenuItem();
-			выйтиToolStripMenuItem = new ToolStripMenuItem();
+			ttmiSave = new ToolStripMenuItem();
+			ttmiLoad = new ToolStripMenuItem();
+			ttmiQuit = new ToolStripMenuItem();
 			AboutProgramToolStripMenuItem = new ToolStripMenuItem();
-			label10 = new Label();
-			label11 = new Label();
-			numericUpDownWarrantyPeriod = new NumericUpDown();
-			labelWarrantyPeriod = new Label();
 			tabControl1.SuspendLayout();
 			tabPage1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+			((System.ComponentModel.ISupportInitialize)pictureBoxPhoneImage).BeginInit();
 			tabPage2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
-			groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)trackBarPM).BeginInit();
-			((System.ComponentModel.ISupportInitialize)trackBarOM).BeginInit();
-			((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-			((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+			((System.ComponentModel.ISupportInitialize)numericUpDownWeight).BeginInit();
+			groupBoxCommunicationGeneration.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)trackBarROM).BeginInit();
+			((System.ComponentModel.ISupportInitialize)trackBarRAM).BeginInit();
+			((System.ComponentModel.ISupportInitialize)numericUpDownNumberOfCameras).BeginInit();
+			((System.ComponentModel.ISupportInitialize)numericUpDownDiagonal).BeginInit();
 			tabPage3.SuspendLayout();
-			menuStrip1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)numericUpDownPoints).BeginInit();
+			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numericUpDownWarrantyPeriod).BeginInit();
+			menuStrip1.SuspendLayout();
 			SuspendLayout();
 			// 
 			// tabControl1
@@ -106,7 +119,7 @@
 			// tabPage1
 			// 
 			tabPage1.Controls.Add(dateTimePickerYearOfRelease);
-			tabPage1.Controls.Add(pictureBox1);
+			tabPage1.Controls.Add(pictureBoxPhoneImage);
 			tabPage1.Controls.Add(labelPhoto);
 			tabPage1.Controls.Add(labelYOR);
 			tabPage1.Controls.Add(comboBoxCountry);
@@ -131,17 +144,17 @@
 			dateTimePickerYearOfRelease.Size = new Size(211, 29);
 			dateTimePickerYearOfRelease.TabIndex = 10;
 			// 
-			// pictureBox1
+			// pictureBoxPhoneImage
 			// 
-			pictureBox1.ErrorImage = (Image)resources.GetObject("pictureBox1.ErrorImage");
-			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-			pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-			pictureBox1.Location = new Point(307, 53);
-			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new Size(290, 310);
-			pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-			pictureBox1.TabIndex = 9;
-			pictureBox1.TabStop = false;
+			pictureBoxPhoneImage.ErrorImage = (Image)resources.GetObject("pictureBoxPhoneImage.ErrorImage");
+			pictureBoxPhoneImage.Image = (Image)resources.GetObject("pictureBoxPhoneImage.Image");
+			pictureBoxPhoneImage.InitialImage = (Image)resources.GetObject("pictureBoxPhoneImage.InitialImage");
+			pictureBoxPhoneImage.Location = new Point(307, 53);
+			pictureBoxPhoneImage.Name = "pictureBoxPhoneImage";
+			pictureBoxPhoneImage.Size = new Size(290, 310);
+			pictureBoxPhoneImage.SizeMode = PictureBoxSizeMode.Zoom;
+			pictureBoxPhoneImage.TabIndex = 9;
+			pictureBoxPhoneImage.TabStop = false;
 			// 
 			// labelPhoto
 			// 
@@ -219,23 +232,22 @@
 			// 
 			// tabPage2
 			// 
-			tabPage2.Controls.Add(richTextBox1);
-			tabPage2.Controls.Add(label9);
+			tabPage2.Controls.Add(richTextBoxAdditionalCharacteristics);
 			tabPage2.Controls.Add(label8);
 			tabPage2.Controls.Add(label7);
-			tabPage2.Controls.Add(numericUpDown3);
-			tabPage2.Controls.Add(groupBox1);
+			tabPage2.Controls.Add(numericUpDownWeight);
+			tabPage2.Controls.Add(groupBoxCommunicationGeneration);
 			tabPage2.Controls.Add(label6);
 			tabPage2.Controls.Add(comboBoxSimType);
 			tabPage2.Controls.Add(labelPM);
-			tabPage2.Controls.Add(trackBarPM);
+			tabPage2.Controls.Add(trackBarROM);
 			tabPage2.Controls.Add(label5);
 			tabPage2.Controls.Add(labelOM);
 			tabPage2.Controls.Add(label4);
-			tabPage2.Controls.Add(trackBarOM);
-			tabPage2.Controls.Add(numericUpDown2);
+			tabPage2.Controls.Add(trackBarRAM);
+			tabPage2.Controls.Add(numericUpDownNumberOfCameras);
 			tabPage2.Controls.Add(label3);
-			tabPage2.Controls.Add(numericUpDown1);
+			tabPage2.Controls.Add(numericUpDownDiagonal);
 			tabPage2.Controls.Add(labelDiagonal);
 			tabPage2.Location = new Point(4, 22);
 			tabPage2.Name = "tabPage2";
@@ -245,22 +257,13 @@
 			tabPage2.Text = "Технические";
 			tabPage2.UseVisualStyleBackColor = true;
 			// 
-			// richTextBox1
+			// richTextBoxAdditionalCharacteristics
 			// 
-			richTextBox1.Location = new Point(381, 63);
-			richTextBox1.Name = "richTextBox1";
-			richTextBox1.Size = new Size(230, 318);
-			richTextBox1.TabIndex = 18;
-			richTextBox1.Text = "";
-			// 
-			// label9
-			// 
-			label9.AutoSize = true;
-			label9.Location = new Point(284, 125);
-			label9.Name = "label9";
-			label9.Size = new Size(40, 12);
-			label9.TabIndex = 17;
-			label9.Text = "label9";
+			richTextBoxAdditionalCharacteristics.Location = new Point(381, 63);
+			richTextBoxAdditionalCharacteristics.Name = "richTextBoxAdditionalCharacteristics";
+			richTextBoxAdditionalCharacteristics.Size = new Size(230, 318);
+			richTextBoxAdditionalCharacteristics.TabIndex = 18;
+			richTextBoxAdditionalCharacteristics.Text = "";
 			// 
 			// label8
 			// 
@@ -284,31 +287,31 @@
 			label7.TabIndex = 15;
 			label7.Text = "Вес, г.";
 			// 
-			// numericUpDown3
+			// numericUpDownWeight
 			// 
-			numericUpDown3.BorderStyle = BorderStyle.FixedSingle;
-			numericUpDown3.DecimalPlaces = 1;
-			numericUpDown3.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			numericUpDown3.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-			numericUpDown3.Location = new Point(190, 212);
-			numericUpDown3.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-			numericUpDown3.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
-			numericUpDown3.Name = "numericUpDown3";
-			numericUpDown3.Size = new Size(158, 29);
-			numericUpDown3.TabIndex = 14;
-			numericUpDown3.Value = new decimal(new int[] { 1, 0, 0, 65536 });
+			numericUpDownWeight.BorderStyle = BorderStyle.FixedSingle;
+			numericUpDownWeight.DecimalPlaces = 1;
+			numericUpDownWeight.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			numericUpDownWeight.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+			numericUpDownWeight.Location = new Point(190, 212);
+			numericUpDownWeight.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			numericUpDownWeight.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
+			numericUpDownWeight.Name = "numericUpDownWeight";
+			numericUpDownWeight.Size = new Size(158, 29);
+			numericUpDownWeight.TabIndex = 14;
+			numericUpDownWeight.Value = new decimal(new int[] { 1, 0, 0, 65536 });
 			// 
-			// groupBox1
+			// groupBoxCommunicationGeneration
 			// 
-			groupBox1.Controls.Add(radioButton5G);
-			groupBox1.Controls.Add(radioButton4G);
-			groupBox1.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			groupBox1.Location = new Point(14, 234);
-			groupBox1.Name = "groupBox1";
-			groupBox1.Size = new Size(148, 122);
-			groupBox1.TabIndex = 13;
-			groupBox1.TabStop = false;
-			groupBox1.Text = "Поколение связи";
+			groupBoxCommunicationGeneration.Controls.Add(radioButton5G);
+			groupBoxCommunicationGeneration.Controls.Add(radioButton4G);
+			groupBoxCommunicationGeneration.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			groupBoxCommunicationGeneration.Location = new Point(14, 234);
+			groupBoxCommunicationGeneration.Name = "groupBoxCommunicationGeneration";
+			groupBoxCommunicationGeneration.Size = new Size(148, 122);
+			groupBoxCommunicationGeneration.TabIndex = 13;
+			groupBoxCommunicationGeneration.TabStop = false;
+			groupBoxCommunicationGeneration.Text = "Поколение связи";
 			// 
 			// radioButton5G
 			// 
@@ -361,19 +364,19 @@
 			labelPM.TabIndex = 10;
 			labelPM.Text = "16 Гб";
 			// 
-			// trackBarPM
+			// trackBarROM
 			// 
-			trackBarPM.LargeChange = 16;
-			trackBarPM.Location = new Point(190, 130);
-			trackBarPM.Maximum = 1024;
-			trackBarPM.Minimum = 16;
-			trackBarPM.Name = "trackBarPM";
-			trackBarPM.Size = new Size(158, 45);
-			trackBarPM.SmallChange = 16;
-			trackBarPM.TabIndex = 9;
-			trackBarPM.TickFrequency = 16;
-			trackBarPM.Value = 16;
-			trackBarPM.ValueChanged += trackBarPM_ValueChanged;
+			trackBarROM.LargeChange = 16;
+			trackBarROM.Location = new Point(190, 130);
+			trackBarROM.Maximum = 1024;
+			trackBarROM.Minimum = 16;
+			trackBarROM.Name = "trackBarROM";
+			trackBarROM.Size = new Size(158, 45);
+			trackBarROM.SmallChange = 16;
+			trackBarROM.TabIndex = 9;
+			trackBarROM.TickFrequency = 16;
+			trackBarROM.Value = 16;
+			trackBarROM.ValueChanged += trackBarPM_ValueChanged;
 			// 
 			// label5
 			// 
@@ -405,28 +408,28 @@
 			label4.TabIndex = 6;
 			label4.Text = "Оперативная память";
 			// 
-			// trackBarOM
+			// trackBarRAM
 			// 
-			trackBarOM.LargeChange = 2;
-			trackBarOM.Location = new Point(190, 42);
-			trackBarOM.Maximum = 16;
-			trackBarOM.Minimum = 1;
-			trackBarOM.Name = "trackBarOM";
-			trackBarOM.Size = new Size(158, 45);
-			trackBarOM.TabIndex = 5;
-			trackBarOM.TickFrequency = 2;
-			trackBarOM.Value = 1;
-			trackBarOM.ValueChanged += trackBarOM_ValueChanged;
+			trackBarRAM.LargeChange = 2;
+			trackBarRAM.Location = new Point(190, 42);
+			trackBarRAM.Maximum = 16;
+			trackBarRAM.Minimum = 1;
+			trackBarRAM.Name = "trackBarRAM";
+			trackBarRAM.Size = new Size(158, 45);
+			trackBarRAM.TabIndex = 5;
+			trackBarRAM.TickFrequency = 2;
+			trackBarRAM.Value = 1;
+			trackBarRAM.ValueChanged += trackBarOM_ValueChanged;
 			// 
-			// numericUpDown2
+			// numericUpDownNumberOfCameras
 			// 
-			numericUpDown2.BorderStyle = BorderStyle.FixedSingle;
-			numericUpDown2.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			numericUpDown2.Location = new Point(17, 112);
-			numericUpDown2.Name = "numericUpDown2";
-			numericUpDown2.Size = new Size(139, 29);
-			numericUpDown2.TabIndex = 4;
-			numericUpDown2.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			numericUpDownNumberOfCameras.BorderStyle = BorderStyle.FixedSingle;
+			numericUpDownNumberOfCameras.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			numericUpDownNumberOfCameras.Location = new Point(17, 112);
+			numericUpDownNumberOfCameras.Name = "numericUpDownNumberOfCameras";
+			numericUpDownNumberOfCameras.Size = new Size(139, 29);
+			numericUpDownNumberOfCameras.TabIndex = 4;
+			numericUpDownNumberOfCameras.Value = new decimal(new int[] { 1, 0, 0, 0 });
 			// 
 			// label3
 			// 
@@ -438,19 +441,19 @@
 			label3.TabIndex = 3;
 			label3.Text = "Количество камер";
 			// 
-			// numericUpDown1
+			// numericUpDownDiagonal
 			// 
-			numericUpDown1.BorderStyle = BorderStyle.FixedSingle;
-			numericUpDown1.DecimalPlaces = 1;
-			numericUpDown1.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			numericUpDown1.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-			numericUpDown1.Location = new Point(17, 42);
-			numericUpDown1.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
-			numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-			numericUpDown1.Name = "numericUpDown1";
-			numericUpDown1.Size = new Size(139, 29);
-			numericUpDown1.TabIndex = 2;
-			numericUpDown1.Value = new decimal(new int[] { 5, 0, 0, 0 });
+			numericUpDownDiagonal.BorderStyle = BorderStyle.FixedSingle;
+			numericUpDownDiagonal.DecimalPlaces = 1;
+			numericUpDownDiagonal.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			numericUpDownDiagonal.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+			numericUpDownDiagonal.Location = new Point(17, 42);
+			numericUpDownDiagonal.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
+			numericUpDownDiagonal.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			numericUpDownDiagonal.Name = "numericUpDownDiagonal";
+			numericUpDownDiagonal.Size = new Size(139, 29);
+			numericUpDownDiagonal.TabIndex = 2;
+			numericUpDownDiagonal.Value = new decimal(new int[] { 5, 0, 0, 0 });
 			// 
 			// labelDiagonal
 			// 
@@ -464,11 +467,18 @@
 			// 
 			// tabPage3
 			// 
+			tabPage3.Controls.Add(numericUpDownPoints);
+			tabPage3.Controls.Add(textBoxPrice);
+			tabPage3.Controls.Add(panel1);
+			tabPage3.Controls.Add(checkBoxPoints);
+			tabPage3.Controls.Add(label9);
+			tabPage3.Controls.Add(dateTimePickerWarrantyPeriodEnd);
+			tabPage3.Controls.Add(label12);
 			tabPage3.Controls.Add(labelWarrantyPeriod);
 			tabPage3.Controls.Add(numericUpDownWarrantyPeriod);
 			tabPage3.Controls.Add(label11);
 			tabPage3.Controls.Add(label10);
-			tabPage3.Controls.Add(maskedTextBox1);
+			tabPage3.Controls.Add(maskedTextBoxYearOfProduction);
 			tabPage3.Location = new Point(4, 22);
 			tabPage3.Name = "tabPage3";
 			tabPage3.Padding = new Padding(3);
@@ -477,16 +487,184 @@
 			tabPage3.Text = "Специальные";
 			tabPage3.UseVisualStyleBackColor = true;
 			// 
-			// maskedTextBox1
+			// numericUpDownPoints
 			// 
-			maskedTextBox1.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			maskedTextBox1.Location = new Point(17, 48);
-			maskedTextBox1.Mask = "00/00/0000";
-			maskedTextBox1.Name = "maskedTextBox1";
-			maskedTextBox1.Size = new Size(145, 29);
-			maskedTextBox1.TabIndex = 0;
-			maskedTextBox1.ValidatingType = typeof(DateTime);
-			maskedTextBox1.KeyUp += maskedTextBox1_KeyUp;
+			numericUpDownPoints.BorderStyle = BorderStyle.FixedSingle;
+			numericUpDownPoints.Enabled = false;
+			numericUpDownPoints.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			numericUpDownPoints.Increment = new decimal(new int[] { 10, 0, 0, 0 });
+			numericUpDownPoints.Location = new Point(424, 149);
+			numericUpDownPoints.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+			numericUpDownPoints.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
+			numericUpDownPoints.Name = "numericUpDownPoints";
+			numericUpDownPoints.Size = new Size(64, 29);
+			numericUpDownPoints.TabIndex = 26;
+			numericUpDownPoints.TextAlign = HorizontalAlignment.Center;
+			numericUpDownPoints.Value = new decimal(new int[] { 10, 0, 0, 0 });
+			// 
+			// textBoxPrice
+			// 
+			textBoxPrice.Location = new Point(424, 74);
+			textBoxPrice.Name = "textBoxPrice";
+			textBoxPrice.Size = new Size(100, 23);
+			textBoxPrice.TabIndex = 27;
+			// 
+			// panel1
+			// 
+			panel1.Controls.Add(maskedTextBox3);
+			panel1.Controls.Add(radioButton2);
+			panel1.Controls.Add(maskedTextBox4);
+			panel1.Controls.Add(radioButton1);
+			panel1.Controls.Add(checkBoxPromotion);
+			panel1.Location = new Point(397, 185);
+			panel1.Name = "panel1";
+			panel1.Size = new Size(200, 182);
+			panel1.TabIndex = 25;
+			// 
+			// maskedTextBox3
+			// 
+			maskedTextBox3.Enabled = false;
+			maskedTextBox3.Location = new Point(38, 70);
+			maskedTextBox3.Mask = "00%";
+			maskedTextBox3.Name = "maskedTextBox3";
+			maskedTextBox3.Size = new Size(100, 23);
+			maskedTextBox3.TabIndex = 25;
+			// 
+			// radioButton2
+			// 
+			radioButton2.AutoSize = true;
+			radioButton2.Checked = true;
+			radioButton2.Enabled = false;
+			radioButton2.Location = new Point(38, 109);
+			radioButton2.Name = "radioButton2";
+			radioButton2.Size = new Size(58, 16);
+			radioButton2.TabIndex = 24;
+			radioButton2.TabStop = true;
+			radioButton2.Text = "Баллы";
+			radioButton2.UseVisualStyleBackColor = true;
+			// 
+			// maskedTextBox4
+			// 
+			maskedTextBox4.Enabled = false;
+			maskedTextBox4.Location = new Point(38, 131);
+			maskedTextBox4.Mask = "00%";
+			maskedTextBox4.Name = "maskedTextBox4";
+			maskedTextBox4.Size = new Size(100, 23);
+			maskedTextBox4.TabIndex = 26;
+			// 
+			// radioButton1
+			// 
+			radioButton1.AutoSize = true;
+			radioButton1.Enabled = false;
+			radioButton1.Location = new Point(38, 49);
+			radioButton1.Name = "radioButton1";
+			radioButton1.Size = new Size(68, 16);
+			radioButton1.TabIndex = 23;
+			radioButton1.Text = "Скидка";
+			radioButton1.UseVisualStyleBackColor = true;
+			// 
+			// checkBoxPromotion
+			// 
+			checkBoxPromotion.AutoSize = true;
+			checkBoxPromotion.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			checkBoxPromotion.Location = new Point(13, 17);
+			checkBoxPromotion.Name = "checkBoxPromotion";
+			checkBoxPromotion.Size = new Size(72, 25);
+			checkBoxPromotion.TabIndex = 22;
+			checkBoxPromotion.Text = "Акция";
+			checkBoxPromotion.UseVisualStyleBackColor = true;
+			// 
+			// checkBoxPoints
+			// 
+			checkBoxPoints.AutoSize = true;
+			checkBoxPoints.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			checkBoxPoints.Location = new Point(424, 114);
+			checkBoxPoints.Name = "checkBoxPoints";
+			checkBoxPoints.Size = new Size(73, 25);
+			checkBoxPoints.TabIndex = 23;
+			checkBoxPoints.Text = "Баллы";
+			checkBoxPoints.UseVisualStyleBackColor = true;
+			// 
+			// label9
+			// 
+			label9.AutoSize = true;
+			label9.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			label9.Location = new Point(424, 39);
+			label9.Name = "label9";
+			label9.Size = new Size(47, 21);
+			label9.TabIndex = 19;
+			label9.Text = "Цена";
+			// 
+			// dateTimePickerWarrantyPeriodEnd
+			// 
+			dateTimePickerWarrantyPeriodEnd.Location = new Point(53, 238);
+			dateTimePickerWarrantyPeriodEnd.Name = "dateTimePickerWarrantyPeriodEnd";
+			dateTimePickerWarrantyPeriodEnd.Size = new Size(200, 23);
+			dateTimePickerWarrantyPeriodEnd.TabIndex = 18;
+			// 
+			// label12
+			// 
+			label12.AutoSize = true;
+			label12.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			label12.Location = new Point(53, 197);
+			label12.Name = "label12";
+			label12.Size = new Size(192, 21);
+			label12.TabIndex = 17;
+			label12.Text = "Дата окончания гарантии";
+			// 
+			// labelWarrantyPeriod
+			// 
+			labelWarrantyPeriod.AutoSize = true;
+			labelWarrantyPeriod.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			labelWarrantyPeriod.Location = new Point(135, 149);
+			labelWarrantyPeriod.Name = "labelWarrantyPeriod";
+			labelWarrantyPeriod.Size = new Size(34, 21);
+			labelWarrantyPeriod.TabIndex = 16;
+			labelWarrantyPeriod.Text = "год";
+			// 
+			// numericUpDownWarrantyPeriod
+			// 
+			numericUpDownWarrantyPeriod.BorderStyle = BorderStyle.FixedSingle;
+			numericUpDownWarrantyPeriod.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			numericUpDownWarrantyPeriod.Location = new Point(65, 147);
+			numericUpDownWarrantyPeriod.Name = "numericUpDownWarrantyPeriod";
+			numericUpDownWarrantyPeriod.Size = new Size(64, 29);
+			numericUpDownWarrantyPeriod.TabIndex = 15;
+			numericUpDownWarrantyPeriod.TextAlign = HorizontalAlignment.Center;
+			numericUpDownWarrantyPeriod.UpDownAlign = LeftRightAlignment.Left;
+			numericUpDownWarrantyPeriod.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			numericUpDownWarrantyPeriod.ValueChanged += numericUpDownWarrantyPeriod_ValueChanged;
+			// 
+			// label11
+			// 
+			label11.AutoSize = true;
+			label11.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			label11.Location = new Point(53, 114);
+			label11.Name = "label11";
+			label11.Size = new Size(138, 21);
+			label11.TabIndex = 8;
+			label11.Text = "Гарантийный срок";
+			// 
+			// label10
+			// 
+			label10.AutoSize = true;
+			label10.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			label10.Location = new Point(53, 32);
+			label10.Name = "label10";
+			label10.Size = new Size(145, 21);
+			label10.TabIndex = 7;
+			label10.Text = "Дата производства";
+			// 
+			// maskedTextBoxYearOfProduction
+			// 
+			maskedTextBoxYearOfProduction.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			maskedTextBoxYearOfProduction.Location = new Point(53, 67);
+			maskedTextBoxYearOfProduction.Mask = "00/00/0000";
+			maskedTextBoxYearOfProduction.Name = "maskedTextBoxYearOfProduction";
+			maskedTextBoxYearOfProduction.Size = new Size(145, 29);
+			maskedTextBoxYearOfProduction.TabIndex = 0;
+			maskedTextBoxYearOfProduction.ValidatingType = typeof(DateTime);
+			maskedTextBoxYearOfProduction.KeyUp += maskedTextBox1_KeyUp;
 			// 
 			// label1
 			// 
@@ -519,28 +697,30 @@
 			// 
 			// FileToolStripMenuItem
 			// 
-			FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { сохранитьToolStripMenuItem, загрузитьToolStripMenuItem, выйтиToolStripMenuItem });
+			FileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ttmiSave, ttmiLoad, ttmiQuit });
 			FileToolStripMenuItem.Name = "FileToolStripMenuItem";
 			FileToolStripMenuItem.Size = new Size(46, 20);
 			FileToolStripMenuItem.Text = "Файл";
 			// 
-			// сохранитьToolStripMenuItem
+			// ttmiSave
 			// 
-			сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-			сохранитьToolStripMenuItem.Size = new Size(132, 22);
-			сохранитьToolStripMenuItem.Text = "Сохранить";
+			ttmiSave.Name = "ttmiSave";
+			ttmiSave.Size = new Size(132, 22);
+			ttmiSave.Text = "Сохранить";
+			ttmiSave.Click += ttmiSave_Click;
 			// 
-			// загрузитьToolStripMenuItem
+			// ttmiLoad
 			// 
-			загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-			загрузитьToolStripMenuItem.Size = new Size(132, 22);
-			загрузитьToolStripMenuItem.Text = "Загрузить";
+			ttmiLoad.Name = "ttmiLoad";
+			ttmiLoad.Size = new Size(132, 22);
+			ttmiLoad.Text = "Загрузить";
 			// 
-			// выйтиToolStripMenuItem
+			// ttmiQuit
 			// 
-			выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
-			выйтиToolStripMenuItem.Size = new Size(132, 22);
-			выйтиToolStripMenuItem.Text = "Выйти";
+			ttmiQuit.Name = "ttmiQuit";
+			ttmiQuit.Size = new Size(132, 22);
+			ttmiQuit.Text = "Выйти";
+			ttmiQuit.Click += ttmiQuit_Click;
 			// 
 			// AboutProgramToolStripMenuItem
 			// 
@@ -548,49 +728,6 @@
 			AboutProgramToolStripMenuItem.Size = new Size(90, 20);
 			AboutProgramToolStripMenuItem.Text = "О программе";
 			AboutProgramToolStripMenuItem.Click += AboutProgramToolStripMenuItem_Click;
-			// 
-			// label10
-			// 
-			label10.AutoSize = true;
-			label10.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			label10.Location = new Point(17, 13);
-			label10.Name = "label10";
-			label10.Size = new Size(145, 21);
-			label10.TabIndex = 7;
-			label10.Text = "Дата производства";
-			// 
-			// label11
-			// 
-			label11.AutoSize = true;
-			label11.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			label11.Location = new Point(17, 95);
-			label11.Name = "label11";
-			label11.Size = new Size(138, 21);
-			label11.TabIndex = 8;
-			label11.Text = "Гарантийный срок";
-			// 
-			// numericUpDownWarrantyPeriod
-			// 
-			numericUpDownWarrantyPeriod.BorderStyle = BorderStyle.FixedSingle;
-			numericUpDownWarrantyPeriod.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			numericUpDownWarrantyPeriod.Location = new Point(29, 128);
-			numericUpDownWarrantyPeriod.Name = "numericUpDownWarrantyPeriod";
-			numericUpDownWarrantyPeriod.Size = new Size(64, 29);
-			numericUpDownWarrantyPeriod.TabIndex = 15;
-			numericUpDownWarrantyPeriod.TextAlign = HorizontalAlignment.Center;
-			numericUpDownWarrantyPeriod.UpDownAlign = LeftRightAlignment.Left;
-			numericUpDownWarrantyPeriod.Value = new decimal(new int[] { 1, 0, 0, 0 });
-			numericUpDownWarrantyPeriod.ValueChanged += numericUpDownWarrantyPeriod_ValueChanged;
-			// 
-			// labelWarrantyPeriod
-			// 
-			labelWarrantyPeriod.AutoSize = true;
-			labelWarrantyPeriod.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			labelWarrantyPeriod.Location = new Point(99, 130);
-			labelWarrantyPeriod.Name = "labelWarrantyPeriod";
-			labelWarrantyPeriod.Size = new Size(34, 21);
-			labelWarrantyPeriod.TabIndex = 16;
-			labelWarrantyPeriod.Text = "год";
 			// 
 			// PhoneShopForm
 			// 
@@ -608,21 +745,24 @@
 			tabControl1.ResumeLayout(false);
 			tabPage1.ResumeLayout(false);
 			tabPage1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+			((System.ComponentModel.ISupportInitialize)pictureBoxPhoneImage).EndInit();
 			tabPage2.ResumeLayout(false);
 			tabPage2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-			groupBox1.ResumeLayout(false);
-			groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)trackBarPM).EndInit();
-			((System.ComponentModel.ISupportInitialize)trackBarOM).EndInit();
-			((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-			((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+			((System.ComponentModel.ISupportInitialize)numericUpDownWeight).EndInit();
+			groupBoxCommunicationGeneration.ResumeLayout(false);
+			groupBoxCommunicationGeneration.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)trackBarROM).EndInit();
+			((System.ComponentModel.ISupportInitialize)trackBarRAM).EndInit();
+			((System.ComponentModel.ISupportInitialize)numericUpDownNumberOfCameras).EndInit();
+			((System.ComponentModel.ISupportInitialize)numericUpDownDiagonal).EndInit();
 			tabPage3.ResumeLayout(false);
 			tabPage3.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)numericUpDownPoints).EndInit();
+			panel1.ResumeLayout(false);
+			panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)numericUpDownWarrantyPeriod).EndInit();
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)numericUpDownWarrantyPeriod).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -645,36 +785,47 @@
 		private ComboBox comboBoxCountry;
 		private Label labelCountry;
 		private Label labelYOR;
-		private PictureBox pictureBox1;
+		private PictureBox pictureBoxPhoneImage;
 		private Label labelPhoto;
-		private NumericUpDown numericUpDown1;
+		private NumericUpDown numericUpDownDiagonal;
 		private Label labelDiagonal;
-		private NumericUpDown numericUpDown2;
+		private NumericUpDown numericUpDownNumberOfCameras;
 		private Label label3;
 		private Label label4;
-		private TrackBar trackBarOM;
+		private TrackBar trackBarRAM;
 		private Label labelOM;
 		private Label labelPM;
-		private TrackBar trackBarPM;
+		private TrackBar trackBarROM;
 		private Label label5;
-		private ToolStripMenuItem сохранитьToolStripMenuItem;
-		private ToolStripMenuItem загрузитьToolStripMenuItem;
-		private ToolStripMenuItem выйтиToolStripMenuItem;
+		private ToolStripMenuItem ttmiSave;
+		private ToolStripMenuItem ttmiLoad;
+		private ToolStripMenuItem ttmiQuit;
 		private Label label6;
 		private ComboBox comboBoxSimType;
-		private GroupBox groupBox1;
+		private GroupBox groupBoxCommunicationGeneration;
 		private RadioButton radioButton5G;
 		private RadioButton radioButton4G;
 		private Label label7;
-		private NumericUpDown numericUpDown3;
-		private RichTextBox richTextBox1;
-		private Label label9;
+		private NumericUpDown numericUpDownWeight;
+		private RichTextBox richTextBoxAdditionalCharacteristics;
 		private Label label8;
 		private DateTimePicker dateTimePickerYearOfRelease;
-		private MaskedTextBox maskedTextBox1;
+		private MaskedTextBox maskedTextBoxYearOfProduction;
 		private Label label10;
 		private Label label11;
 		private Label labelWarrantyPeriod;
 		private NumericUpDown numericUpDownWarrantyPeriod;
+		private Label label12;
+		private CheckBox checkBoxPoints;
+		private CheckBox checkBoxPromotion;
+		private Label label9;
+		private DateTimePicker dateTimePickerWarrantyPeriodEnd;
+		private Panel panel1;
+		private NumericUpDown numericUpDownPoints;
+		private MaskedTextBox maskedTextBox3;
+		private RadioButton radioButton2;
+		private RadioButton radioButton1;
+		private TextBox textBoxPrice;
+		private MaskedTextBox maskedTextBox4;
 	}
 }
