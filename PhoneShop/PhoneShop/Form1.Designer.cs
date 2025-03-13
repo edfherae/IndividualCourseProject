@@ -65,10 +65,10 @@
 			numericUpDownPoints = new NumericUpDown();
 			textBoxPrice = new TextBox();
 			panel1 = new Panel();
-			maskedTextBox3 = new MaskedTextBox();
-			radioButton2 = new RadioButton();
-			maskedTextBox4 = new MaskedTextBox();
-			radioButton1 = new RadioButton();
+			maskedTextBoxDiscount = new MaskedTextBox();
+			rbPromotionPoints = new RadioButton();
+			maskedTextBoxPoints = new MaskedTextBox();
+			rbPromotionDiscount = new RadioButton();
 			checkBoxPromotion = new CheckBox();
 			checkBoxPoints = new CheckBox();
 			label9 = new Label();
@@ -78,7 +78,7 @@
 			numericUpDownWarrantyPeriod = new NumericUpDown();
 			label11 = new Label();
 			label10 = new Label();
-			maskedTextBoxYearOfProduction = new MaskedTextBox();
+			maskedTextBoxDateOfProduction = new MaskedTextBox();
 			label1 = new Label();
 			label2 = new Label();
 			menuStrip1 = new MenuStrip();
@@ -87,6 +87,7 @@
 			ttmiLoad = new ToolStripMenuItem();
 			ttmiQuit = new ToolStripMenuItem();
 			AboutProgramToolStripMenuItem = new ToolStripMenuItem();
+			buttonChooseImage = new Button();
 			tabControl1.SuspendLayout();
 			tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBoxPhoneImage).BeginInit();
@@ -118,6 +119,7 @@
 			// 
 			// tabPage1
 			// 
+			tabPage1.Controls.Add(buttonChooseImage);
 			tabPage1.Controls.Add(dateTimePickerYearOfRelease);
 			tabPage1.Controls.Add(pictureBoxPhoneImage);
 			tabPage1.Controls.Add(labelPhoto);
@@ -149,9 +151,9 @@
 			pictureBoxPhoneImage.ErrorImage = (Image)resources.GetObject("pictureBoxPhoneImage.ErrorImage");
 			pictureBoxPhoneImage.Image = (Image)resources.GetObject("pictureBoxPhoneImage.Image");
 			pictureBoxPhoneImage.InitialImage = (Image)resources.GetObject("pictureBoxPhoneImage.InitialImage");
-			pictureBoxPhoneImage.Location = new Point(307, 53);
+			pictureBoxPhoneImage.Location = new Point(320, 43);
 			pictureBoxPhoneImage.Name = "pictureBoxPhoneImage";
-			pictureBoxPhoneImage.Size = new Size(290, 310);
+			pictureBoxPhoneImage.Size = new Size(263, 280);
 			pictureBoxPhoneImage.SizeMode = PictureBoxSizeMode.Zoom;
 			pictureBoxPhoneImage.TabIndex = 9;
 			pictureBoxPhoneImage.TabStop = false;
@@ -478,7 +480,7 @@
 			tabPage3.Controls.Add(numericUpDownWarrantyPeriod);
 			tabPage3.Controls.Add(label11);
 			tabPage3.Controls.Add(label10);
-			tabPage3.Controls.Add(maskedTextBoxYearOfProduction);
+			tabPage3.Controls.Add(maskedTextBoxDateOfProduction);
 			tabPage3.Location = new Point(4, 22);
 			tabPage3.Name = "tabPage3";
 			tabPage3.Padding = new Padding(3);
@@ -508,60 +510,60 @@
 			textBoxPrice.Name = "textBoxPrice";
 			textBoxPrice.Size = new Size(100, 23);
 			textBoxPrice.TabIndex = 27;
+			textBoxPrice.KeyDown += textBoxPrice_KeyDown;
+			textBoxPrice.Leave += textBoxPrice_Leave;
 			// 
 			// panel1
 			// 
-			panel1.Controls.Add(maskedTextBox3);
-			panel1.Controls.Add(radioButton2);
-			panel1.Controls.Add(maskedTextBox4);
-			panel1.Controls.Add(radioButton1);
+			panel1.Controls.Add(maskedTextBoxDiscount);
+			panel1.Controls.Add(rbPromotionPoints);
+			panel1.Controls.Add(maskedTextBoxPoints);
+			panel1.Controls.Add(rbPromotionDiscount);
 			panel1.Controls.Add(checkBoxPromotion);
 			panel1.Location = new Point(397, 185);
 			panel1.Name = "panel1";
 			panel1.Size = new Size(200, 182);
 			panel1.TabIndex = 25;
 			// 
-			// maskedTextBox3
+			// maskedTextBoxDiscount
 			// 
-			maskedTextBox3.Enabled = false;
-			maskedTextBox3.Location = new Point(38, 70);
-			maskedTextBox3.Mask = "00%";
-			maskedTextBox3.Name = "maskedTextBox3";
-			maskedTextBox3.Size = new Size(100, 23);
-			maskedTextBox3.TabIndex = 25;
+			maskedTextBoxDiscount.Enabled = false;
+			maskedTextBoxDiscount.Location = new Point(38, 70);
+			maskedTextBoxDiscount.Mask = "00%";
+			maskedTextBoxDiscount.Name = "maskedTextBoxDiscount";
+			maskedTextBoxDiscount.Size = new Size(100, 23);
+			maskedTextBoxDiscount.TabIndex = 25;
 			// 
-			// radioButton2
+			// rbPromotionPoints
 			// 
-			radioButton2.AutoSize = true;
-			radioButton2.Checked = true;
-			radioButton2.Enabled = false;
-			radioButton2.Location = new Point(38, 109);
-			radioButton2.Name = "radioButton2";
-			radioButton2.Size = new Size(58, 16);
-			radioButton2.TabIndex = 24;
-			radioButton2.TabStop = true;
-			radioButton2.Text = "Баллы";
-			radioButton2.UseVisualStyleBackColor = true;
+			rbPromotionPoints.AutoSize = true;
+			rbPromotionPoints.Enabled = false;
+			rbPromotionPoints.Location = new Point(38, 109);
+			rbPromotionPoints.Name = "rbPromotionPoints";
+			rbPromotionPoints.Size = new Size(58, 16);
+			rbPromotionPoints.TabIndex = 24;
+			rbPromotionPoints.Text = "Баллы";
+			rbPromotionPoints.UseVisualStyleBackColor = true;
 			// 
-			// maskedTextBox4
+			// maskedTextBoxPoints
 			// 
-			maskedTextBox4.Enabled = false;
-			maskedTextBox4.Location = new Point(38, 131);
-			maskedTextBox4.Mask = "00%";
-			maskedTextBox4.Name = "maskedTextBox4";
-			maskedTextBox4.Size = new Size(100, 23);
-			maskedTextBox4.TabIndex = 26;
+			maskedTextBoxPoints.Enabled = false;
+			maskedTextBoxPoints.Location = new Point(38, 131);
+			maskedTextBoxPoints.Mask = "00%";
+			maskedTextBoxPoints.Name = "maskedTextBoxPoints";
+			maskedTextBoxPoints.Size = new Size(100, 23);
+			maskedTextBoxPoints.TabIndex = 26;
 			// 
-			// radioButton1
+			// rbPromotionDiscount
 			// 
-			radioButton1.AutoSize = true;
-			radioButton1.Enabled = false;
-			radioButton1.Location = new Point(38, 49);
-			radioButton1.Name = "radioButton1";
-			radioButton1.Size = new Size(68, 16);
-			radioButton1.TabIndex = 23;
-			radioButton1.Text = "Скидка";
-			radioButton1.UseVisualStyleBackColor = true;
+			rbPromotionDiscount.AutoSize = true;
+			rbPromotionDiscount.Enabled = false;
+			rbPromotionDiscount.Location = new Point(38, 49);
+			rbPromotionDiscount.Name = "rbPromotionDiscount";
+			rbPromotionDiscount.Size = new Size(68, 16);
+			rbPromotionDiscount.TabIndex = 23;
+			rbPromotionDiscount.Text = "Скидка";
+			rbPromotionDiscount.UseVisualStyleBackColor = true;
 			// 
 			// checkBoxPromotion
 			// 
@@ -573,6 +575,7 @@
 			checkBoxPromotion.TabIndex = 22;
 			checkBoxPromotion.Text = "Акция";
 			checkBoxPromotion.UseVisualStyleBackColor = true;
+			checkBoxPromotion.CheckedChanged += checkBoxPromotion_CheckedChanged;
 			// 
 			// checkBoxPoints
 			// 
@@ -584,6 +587,7 @@
 			checkBoxPoints.TabIndex = 23;
 			checkBoxPoints.Text = "Баллы";
 			checkBoxPoints.UseVisualStyleBackColor = true;
+			checkBoxPoints.CheckedChanged += checkBoxPoints_CheckedChanged;
 			// 
 			// label9
 			// 
@@ -655,16 +659,17 @@
 			label10.TabIndex = 7;
 			label10.Text = "Дата производства";
 			// 
-			// maskedTextBoxYearOfProduction
+			// maskedTextBoxDateOfProduction
 			// 
-			maskedTextBoxYearOfProduction.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			maskedTextBoxYearOfProduction.Location = new Point(53, 67);
-			maskedTextBoxYearOfProduction.Mask = "00/00/0000";
-			maskedTextBoxYearOfProduction.Name = "maskedTextBoxYearOfProduction";
-			maskedTextBoxYearOfProduction.Size = new Size(145, 29);
-			maskedTextBoxYearOfProduction.TabIndex = 0;
-			maskedTextBoxYearOfProduction.ValidatingType = typeof(DateTime);
-			maskedTextBoxYearOfProduction.KeyUp += maskedTextBox1_KeyUp;
+			maskedTextBoxDateOfProduction.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			maskedTextBoxDateOfProduction.Location = new Point(53, 67);
+			maskedTextBoxDateOfProduction.Mask = "00/00/0000";
+			maskedTextBoxDateOfProduction.Name = "maskedTextBoxDateOfProduction";
+			maskedTextBoxDateOfProduction.Size = new Size(145, 29);
+			maskedTextBoxDateOfProduction.TabIndex = 0;
+			maskedTextBoxDateOfProduction.ValidatingType = typeof(DateTime);
+			maskedTextBoxDateOfProduction.KeyUp += maskedTextBoxYearOfProduction_KeyUp;
+			maskedTextBoxDateOfProduction.Leave += maskedTextBoxYearOfProduction_Leave;
 			// 
 			// label1
 			// 
@@ -693,7 +698,6 @@
 			menuStrip1.Size = new Size(800, 24);
 			menuStrip1.TabIndex = 3;
 			menuStrip1.Text = "menuStrip1";
-			menuStrip1.ItemClicked += menuStrip1_ItemClicked;
 			// 
 			// FileToolStripMenuItem
 			// 
@@ -714,6 +718,7 @@
 			ttmiLoad.Name = "ttmiLoad";
 			ttmiLoad.Size = new Size(132, 22);
 			ttmiLoad.Text = "Загрузить";
+			ttmiLoad.Click += ttmiLoad_Click;
 			// 
 			// ttmiQuit
 			// 
@@ -728,6 +733,17 @@
 			AboutProgramToolStripMenuItem.Size = new Size(90, 20);
 			AboutProgramToolStripMenuItem.Text = "О программе";
 			AboutProgramToolStripMenuItem.Click += AboutProgramToolStripMenuItem_Click;
+			// 
+			// buttonChooseImage
+			// 
+			buttonChooseImage.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			buttonChooseImage.Location = new Point(389, 338);
+			buttonChooseImage.Name = "buttonChooseImage";
+			buttonChooseImage.Size = new Size(134, 30);
+			buttonChooseImage.TabIndex = 11;
+			buttonChooseImage.Text = "Выбрать фото";
+			buttonChooseImage.UseVisualStyleBackColor = true;
+			buttonChooseImage.Click += buttonChooseImage_Click;
 			// 
 			// PhoneShopForm
 			// 
@@ -810,7 +826,7 @@
 		private RichTextBox richTextBoxAdditionalCharacteristics;
 		private Label label8;
 		private DateTimePicker dateTimePickerYearOfRelease;
-		private MaskedTextBox maskedTextBoxYearOfProduction;
+		private MaskedTextBox maskedTextBoxDateOfProduction;
 		private Label label10;
 		private Label label11;
 		private Label labelWarrantyPeriod;
@@ -822,10 +838,11 @@
 		private DateTimePicker dateTimePickerWarrantyPeriodEnd;
 		private Panel panel1;
 		private NumericUpDown numericUpDownPoints;
-		private MaskedTextBox maskedTextBox3;
-		private RadioButton radioButton2;
-		private RadioButton radioButton1;
+		private MaskedTextBox maskedTextBoxDiscount;
+		private RadioButton rbPromotionPoints;
+		private RadioButton rbPromotionDiscount;
 		private TextBox textBoxPrice;
-		private MaskedTextBox maskedTextBox4;
+		private MaskedTextBox maskedTextBoxPoints;
+		private Button buttonChooseImage;
 	}
 }
