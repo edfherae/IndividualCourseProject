@@ -31,6 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhoneShopForm));
 			tabControl1 = new TabControl();
 			tabPage1 = new TabPage();
+			buttonChooseImage = new Button();
 			dateTimePickerYearOfRelease = new DateTimePicker();
 			pictureBoxPhoneImage = new PictureBox();
 			labelPhoto = new Label();
@@ -79,7 +80,6 @@
 			label11 = new Label();
 			label10 = new Label();
 			maskedTextBoxDateOfProduction = new MaskedTextBox();
-			label1 = new Label();
 			label2 = new Label();
 			menuStrip1 = new MenuStrip();
 			FileToolStripMenuItem = new ToolStripMenuItem();
@@ -87,7 +87,7 @@
 			ttmiLoad = new ToolStripMenuItem();
 			ttmiQuit = new ToolStripMenuItem();
 			AboutProgramToolStripMenuItem = new ToolStripMenuItem();
-			buttonChooseImage = new Button();
+			dataGridView1 = new DataGridView();
 			tabControl1.SuspendLayout();
 			tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBoxPhoneImage).BeginInit();
@@ -103,6 +103,7 @@
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numericUpDownWarrantyPeriod).BeginInit();
 			menuStrip1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
 			SuspendLayout();
 			// 
 			// tabControl1
@@ -138,10 +139,21 @@
 			tabPage1.Text = "Общие";
 			tabPage1.UseVisualStyleBackColor = true;
 			// 
+			// buttonChooseImage
+			// 
+			buttonChooseImage.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			buttonChooseImage.Location = new Point(389, 338);
+			buttonChooseImage.Name = "buttonChooseImage";
+			buttonChooseImage.Size = new Size(134, 30);
+			buttonChooseImage.TabIndex = 11;
+			buttonChooseImage.Text = "Выбрать фото";
+			buttonChooseImage.UseVisualStyleBackColor = true;
+			buttonChooseImage.Click += buttonChooseImage_Click;
+			// 
 			// dateTimePickerYearOfRelease
 			// 
 			dateTimePickerYearOfRelease.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			dateTimePickerYearOfRelease.Location = new Point(21, 221);
+			dateTimePickerYearOfRelease.Location = new Point(21, 233);
 			dateTimePickerYearOfRelease.Name = "dateTimePickerYearOfRelease";
 			dateTimePickerYearOfRelease.Size = new Size(211, 29);
 			dateTimePickerYearOfRelease.TabIndex = 10;
@@ -172,7 +184,7 @@
 			// 
 			labelYOR.AutoSize = true;
 			labelYOR.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			labelYOR.Location = new Point(21, 187);
+			labelYOR.Location = new Point(21, 199);
 			labelYOR.Name = "labelYOR";
 			labelYOR.Size = new Size(94, 21);
 			labelYOR.TabIndex = 6;
@@ -181,7 +193,7 @@
 			// comboBoxCountry
 			// 
 			comboBoxCountry.FormattingEnabled = true;
-			comboBoxCountry.Location = new Point(21, 148);
+			comboBoxCountry.Location = new Point(21, 160);
 			comboBoxCountry.Name = "comboBoxCountry";
 			comboBoxCountry.Size = new Size(211, 20);
 			comboBoxCountry.TabIndex = 5;
@@ -190,7 +202,7 @@
 			// 
 			labelCountry.AutoSize = true;
 			labelCountry.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			labelCountry.Location = new Point(27, 121);
+			labelCountry.Location = new Point(27, 133);
 			labelCountry.Name = "labelCountry";
 			labelCountry.Size = new Size(60, 21);
 			labelCountry.TabIndex = 4;
@@ -199,7 +211,7 @@
 			// comboBoxProducers
 			// 
 			comboBoxProducers.FormattingEnabled = true;
-			comboBoxProducers.Location = new Point(22, 95);
+			comboBoxProducers.Location = new Point(22, 107);
 			comboBoxProducers.Name = "comboBoxProducers";
 			comboBoxProducers.Size = new Size(210, 20);
 			comboBoxProducers.Sorted = true;
@@ -209,7 +221,7 @@
 			// 
 			labelProducer.AutoSize = true;
 			labelProducer.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			labelProducer.Location = new Point(22, 67);
+			labelProducer.Location = new Point(22, 79);
 			labelProducer.Name = "labelProducer";
 			labelProducer.Size = new Size(120, 21);
 			labelProducer.TabIndex = 2;
@@ -217,7 +229,7 @@
 			// 
 			// textBoxModel
 			// 
-			textBoxModel.Location = new Point(22, 36);
+			textBoxModel.Location = new Point(22, 48);
 			textBoxModel.Name = "textBoxModel";
 			textBoxModel.Size = new Size(210, 23);
 			textBoxModel.TabIndex = 1;
@@ -226,7 +238,7 @@
 			// 
 			labelModel.AutoSize = true;
 			labelModel.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			labelModel.Location = new Point(24, 10);
+			labelModel.Location = new Point(24, 22);
 			labelModel.Name = "labelModel";
 			labelModel.Size = new Size(66, 21);
 			labelModel.TabIndex = 0;
@@ -341,7 +353,7 @@
 			// 
 			label6.AutoSize = true;
 			label6.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			label6.Location = new Point(17, 154);
+			label6.Location = new Point(31, 159);
 			label6.Name = "label6";
 			label6.Size = new Size(113, 21);
 			label6.TabIndex = 12;
@@ -437,7 +449,7 @@
 			// 
 			label3.AutoSize = true;
 			label3.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			label3.Location = new Point(17, 79);
+			label3.Location = new Point(17, 83);
 			label3.Name = "label3";
 			label3.Size = new Size(139, 21);
 			label3.TabIndex = 3;
@@ -461,7 +473,7 @@
 			// 
 			labelDiagonal.AutoSize = true;
 			labelDiagonal.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			labelDiagonal.Location = new Point(39, 13);
+			labelDiagonal.Location = new Point(40, 14);
 			labelDiagonal.Name = "labelDiagonal";
 			labelDiagonal.Size = new Size(86, 21);
 			labelDiagonal.TabIndex = 1;
@@ -628,6 +640,7 @@
 			// 
 			// numericUpDownWarrantyPeriod
 			// 
+			numericUpDownWarrantyPeriod.BackColor = Color.White;
 			numericUpDownWarrantyPeriod.BorderStyle = BorderStyle.FixedSingle;
 			numericUpDownWarrantyPeriod.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
 			numericUpDownWarrantyPeriod.Location = new Point(65, 147);
@@ -671,19 +684,10 @@
 			maskedTextBoxDateOfProduction.KeyUp += maskedTextBoxYearOfProduction_KeyUp;
 			maskedTextBoxDateOfProduction.Leave += maskedTextBoxYearOfProduction_Leave;
 			// 
-			// label1
-			// 
-			label1.AutoSize = true;
-			label1.Location = new Point(12, 86);
-			label1.Name = "label1";
-			label1.Size = new Size(116, 12);
-			label1.TabIndex = 1;
-			label1.Text = "строки из таблицы";
-			// 
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new Point(21, 46);
+			label2.Location = new Point(36, 34);
 			label2.Name = "label2";
 			label2.Size = new Size(95, 12);
 			label2.TabIndex = 2;
@@ -734,16 +738,13 @@
 			AboutProgramToolStripMenuItem.Text = "О программе";
 			AboutProgramToolStripMenuItem.Click += AboutProgramToolStripMenuItem_Click;
 			// 
-			// buttonChooseImage
+			// dataGridView1
 			// 
-			buttonChooseImage.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			buttonChooseImage.Location = new Point(389, 338);
-			buttonChooseImage.Name = "buttonChooseImage";
-			buttonChooseImage.Size = new Size(134, 30);
-			buttonChooseImage.TabIndex = 11;
-			buttonChooseImage.Text = "Выбрать фото";
-			buttonChooseImage.UseVisualStyleBackColor = true;
-			buttonChooseImage.Click += buttonChooseImage_Click;
+			dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridView1.Location = new Point(12, 49);
+			dataGridView1.Name = "dataGridView1";
+			dataGridView1.Size = new Size(140, 389);
+			dataGridView1.TabIndex = 4;
 			// 
 			// PhoneShopForm
 			// 
@@ -751,8 +752,8 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = SystemColors.Control;
 			ClientSize = new Size(800, 450);
+			Controls.Add(dataGridView1);
 			Controls.Add(label2);
-			Controls.Add(label1);
 			Controls.Add(tabControl1);
 			Controls.Add(menuStrip1);
 			MainMenuStrip = menuStrip1;
@@ -779,6 +780,7 @@
 			((System.ComponentModel.ISupportInitialize)numericUpDownWarrantyPeriod).EndInit();
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -789,7 +791,6 @@
 		private TabPage tabPage1;
 		private TabPage tabPage2;
 		private TabPage tabPage3;
-		private Label label1;
 		private Label label2;
 		private MenuStrip menuStrip1;
 		private ToolStripMenuItem FileToolStripMenuItem;
@@ -844,5 +845,6 @@
 		private TextBox textBoxPrice;
 		private MaskedTextBox maskedTextBoxPoints;
 		private Button buttonChooseImage;
+		private DataGridView dataGridView1;
 	}
 }

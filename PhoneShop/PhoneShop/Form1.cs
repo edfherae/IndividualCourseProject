@@ -1,71 +1,49 @@
 using Newtonsoft.Json;
+using System.Data.Entity;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace PhoneShop
 {
 	public partial class PhoneShopForm : Form
 	{
-		public class Phone
+		// Свойства для получения значений формы
+		#region Общие
+		public string TextBoxModel => textBoxModel.Text;
+		public string ComboBoxProducers => comboBoxProducers.Text;
+		public string ComboBoxCountry => comboBoxCountry.Text;
+		public DateTime DateTimePickerYearOfRelease => dateTimePickerYearOfRelease.Value;
+		public string PictureBoxPhoneImage => pictureBoxPhoneImage.ImageLocation;
+		#endregion
+
+		#region Технические
+		public double NumericUpDownDiagonal => (double)numericUpDownDiagonal.Value;
+		public int NumericUpDownNumberOfCameras => (int)numericUpDownNumberOfCameras.Value;
+		public string ComboBoxSimType => comboBoxSimType.Text;
+		public int GroupBoxCommunicationGeneration
 		{
-			public static string[] produsers = { "Samsung", "Apple", "Poco", "Huawei", "LG" };
-			public static string[] simTypes = { "Mini-SIM", "Micro-SIM", "Nano-SIM", "ESIM" };
-			public static string[] countries = { "Россия", "Украина", "Беларусь", "Камбоджа" };
-
-			public string Model { get; set; }
-			public string Producer { get; set; }
-			public string Country { get; set; }
-			public DateTime YearOfRelease { get; set; }
-			public string? ImageLocation { get; set; }
-
-			public double Diagonal { get; set; }
-			public int NumberOfCameras { get; set; }
-			public string SIMType { get; set; }
-			public int CommunicationGeneration { get; set; }
-			public int RAM { get; set; }
-			public int ROM { get; set; }
-			public double Weight { get; set; }
-			public string? AdditionalCharacteristics { get; set; }
-
-			public DateTime DateOfProduction { get; set; }
-			public int WarrantyPeriod { get; set; }
-			//public int Дата окончания
-			public double Price { get; set; }
-			public int? Points { get; set; }
-			public int? PromotionDiscount { get; set; } //в процентах
-			public int? PromotionPoints { get; set; } //в процентах
-			public Phone() { }
-			public Phone(PhoneShopForm form) // init Phone from Form
+			get
 			{
-				Model = form.textBoxModel.Text;
-				Producer = form.comboBoxProducers.Text;
-				Country = form.comboBoxCountry.Text;
-				YearOfRelease = form.dateTimePickerYearOfRelease.Value;
-				ImageLocation = form.pictureBoxPhoneImage.ImageLocation;
-
-				Diagonal = (double)form.numericUpDownDiagonal.Value;
-				NumberOfCameras = (int)form.numericUpDownNumberOfCameras.Value;
-				SIMType = form.comboBoxSimType.Text;
-				foreach (RadioButton rb in form.groupBoxCommunicationGeneration.Controls)
+				foreach (RadioButton rb in groupBoxCommunicationGeneration.Controls)
 					if (rb.Checked)
-						CommunicationGeneration = rb.Text[0];
-				RAM = form.trackBarRAM.Value;
-				ROM = form.trackBarROM.Value;
-				Weight = (double)form.numericUpDownWeight.Value;
-				AdditionalCharacteristics = form.richTextBoxAdditionalCharacteristics.Text;
-
-				DateOfProduction = DateTime.Parse(form.maskedTextBoxDateOfProduction.Text);
-				WarrantyPeriod = (int)form.numericUpDownWarrantyPeriod.Value;
-				Price = double.Parse(form.textBoxPrice.Text);
-				//сохранять значения чек боксов
-				if (form.checkBoxPoints.Checked) Points = (int)form.numericUpDownPoints.Value;
-				if (form.checkBoxPromotion.Checked)
-				{
-					PromotionDiscount = form.rbPromotionDiscount.Checked ? int.Parse(form.maskedTextBoxDiscount.Text) : null;
-					PromotionPoints = form.rbPromotionDiscount.Checked ? int.Parse(form.maskedTextBoxPoints.Text) : null;
-				}
+						return rb.Text[0];
+				return 0; //не должно так быть
 			}
-
 		}
+		public int TrackBarRAM => trackBarRAM.Value;
+		public int TrackBarROM => trackBarROM.Value;
+		public double NumericUpDownWeight => (double)numericUpDownWeight.Value;
+		public string RichTextBoxAdditionalCharacteristics => richTextBoxAdditionalCharacteristics.Text;
+		#endregion
+
+		#region Специальные
+		public DateTime MaskedTextBoxDateOfProduction => DateTime.Parse(maskedTextBoxDateOfProduction.Text);
+		public int NumericUpDownWarrantyPeriod => (int)numericUpDownWarrantyPeriod.Value;
+		public double TextBoxPrice => double.Parse(textBoxPrice.Text);
+		public int? NumericUpDownPoints => checkBoxPoints.Checked ? (int?)numericUpDownPoints.Value : null;
+		public int? PromotionDiscount => checkBoxPromotion.Checked && rbPromotionDiscount.Checked ? (int?)int.Parse(maskedTextBoxDiscount.Text) : null;
+		public int? PromotionPoints => checkBoxPromotion.Checked && rbPromotionDiscount.Checked ? (int?)int.Parse(maskedTextBoxPoints.Text) : null;
+		#endregion
 		public PhoneShopForm()
 		{
 			InitializeComponent();
@@ -101,6 +79,27 @@ namespace PhoneShop
 			if (phone.PromotionDiscount != null) maskedTextBoxDiscount.Text = phone.PromotionDiscount.ToString();
 			if (phone.PromotionPoints != null) maskedTextBoxPoints.Text = phone.PromotionPoints.ToString();
 		}
+		//public bool CheckNullAndChangeBackColor()
+		//{
+		//	if (string.IsNullOrEmpty(TextBoxModel)) this.textBoxModel.BackColor = Color.MistyRose;
+		//	if (string.IsNullOrEmpty(ComboBoxProducers)) this.comboBoxProducers.BackColor = Color.MistyRose;
+		//	if (string.IsNullOrEmpty(ComboBoxCountry)) this.comboBoxCountry.BackColor = Color.MistyRose;
+		//	if (string.IsNullOrEmpty(ComboBoxSimType)) this.comboBoxSimType.BackColor = Color.MistyRose;
+		//	if (GroupBoxCommunicationGeneration == null) this.groupBoxCommunicationGeneration.BackColor = Color.MistyRose;
+		//	if (string.IsNullOrEmpty(NumericUpDownDiagonal)) this.textBoxModel.BackColor = Color.MistyRose;
+
+
+		//	NumericUpDownDiagonal == 0 ||
+		//	NumericUpDownNumberOfCameras == 0 ||
+		//	TrackBarRAM == 0 ||
+		//	TrackBarROM == 0 ||
+		//	NumericUpDownWeight == 0 ||
+		//	NumericUpDownWarrantyPeriod == 0 ||
+		//	TextBoxPrice == 0)
+		//	{
+		//		BackColor = "MistyRose";
+		//	}
+		//}
 		private void AboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			MessageBox.Show("сделай отдельную форму", "achtung");
@@ -215,11 +214,72 @@ namespace PhoneShop
 		private void buttonChooseImage_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog ofd = new();
-			if(ofd.ShowDialog() == DialogResult.OK)
+			if (ofd.ShowDialog() == DialogResult.OK)
 			{
 				this.pictureBoxPhoneImage.ImageLocation = ofd.FileName;
 				pictureBoxPhoneImage.Refresh();
 			}
 		}
+	}
+	public class Phone
+	{
+		public static string[] produsers = { "Samsung", "Apple", "Poco", "Huawei", "LG" };
+		public static string[] simTypes = { "Mini-SIM", "Micro-SIM", "Nano-SIM", "ESIM" };
+		public static string[] countries = { "Россия", "Украина", "Беларусь", "Камбоджа" };
+
+		public string Model { get; set; }
+		public string Producer { get; set; }
+		public string Country { get; set; }
+		public DateTime YearOfRelease { get; set; }
+		public string? ImageLocation { get; set; }
+
+		public double Diagonal { get; set; }
+		public int NumberOfCameras { get; set; }
+		public string SIMType { get; set; }
+		public int CommunicationGeneration { get; set; }
+		public int RAM { get; set; }
+		public int ROM { get; set; }
+		public double Weight { get; set; }
+		public string? AdditionalCharacteristics { get; set; }
+
+		public DateTime DateOfProduction { get; set; }
+		public int WarrantyPeriod { get; set; }
+		//public int Дата окончания
+		public double Price { get; set; }
+		public int? Points { get; set; }
+		public int? PromotionDiscount { get; set; } //в процентах
+		public int? PromotionPoints { get; set; } //в процентах
+		public Phone() { }
+		public Phone(PhoneShopForm form) // init Phone from Form
+		{
+			Model = form.TextBoxModel;
+			Producer = form.ComboBoxProducers;
+			Country = form.ComboBoxCountry;
+			YearOfRelease = form.DateTimePickerYearOfRelease;
+			ImageLocation = form.PictureBoxPhoneImage;
+
+			Diagonal = (double)form.NumericUpDownDiagonal;
+			NumberOfCameras = (int)form.NumericUpDownNumberOfCameras;
+			SIMType = form.ComboBoxSimType;
+			CommunicationGeneration = form.GroupBoxCommunicationGeneration;
+			RAM = form.TrackBarRAM;
+			ROM = form.TrackBarROM;
+			Weight = (double)form.NumericUpDownWeight;
+			AdditionalCharacteristics = form.RichTextBoxAdditionalCharacteristics;
+
+			DateOfProduction = form.MaskedTextBoxDateOfProduction;
+			WarrantyPeriod = (int)form.NumericUpDownWarrantyPeriod;
+			Price = form.TextBoxPrice;
+			//сохранять значения чек боксов
+			Points = form.NumericUpDownPoints;
+			PromotionDiscount = form.PromotionDiscount;
+			PromotionPoints = form.PromotionPoints;
+		}
+
+	}
+	public class AppDbContext : DbContext
+	{
+		public DbSet<Phone> Phones { get; set; }
+		public AppDbContext() : base("name=DefaultConnection") { }
 	}
 }
