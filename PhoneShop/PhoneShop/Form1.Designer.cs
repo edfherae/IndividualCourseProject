@@ -1,4 +1,7 @@
-﻿namespace PhoneShop
+﻿using System.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace PhoneShop
 {
     partial class PhoneShopForm
     {
@@ -31,6 +34,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhoneShopForm));
 			tabControl1 = new TabControl();
 			tabPage1 = new TabPage();
+			buttonAddToDB = new Button();
 			buttonChooseImage = new Button();
 			dateTimePickerYearOfRelease = new DateTimePicker();
 			pictureBoxPhoneImage = new PictureBox();
@@ -80,14 +84,14 @@
 			label11 = new Label();
 			label10 = new Label();
 			maskedTextBoxDateOfProduction = new MaskedTextBox();
-			label2 = new Label();
 			menuStrip1 = new MenuStrip();
 			FileToolStripMenuItem = new ToolStripMenuItem();
 			ttmiSave = new ToolStripMenuItem();
 			ttmiLoad = new ToolStripMenuItem();
 			ttmiQuit = new ToolStripMenuItem();
 			AboutProgramToolStripMenuItem = new ToolStripMenuItem();
-			dataGridView1 = new DataGridView();
+			buttonReloadDB = new Button();
+			listBoxPhones = new ListBox();
 			tabControl1.SuspendLayout();
 			tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBoxPhoneImage).BeginInit();
@@ -103,7 +107,6 @@
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)numericUpDownWarrantyPeriod).BeginInit();
 			menuStrip1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
 			SuspendLayout();
 			// 
 			// tabControl1
@@ -120,6 +123,7 @@
 			// 
 			// tabPage1
 			// 
+			tabPage1.Controls.Add(buttonAddToDB);
 			tabPage1.Controls.Add(buttonChooseImage);
 			tabPage1.Controls.Add(dateTimePickerYearOfRelease);
 			tabPage1.Controls.Add(pictureBoxPhoneImage);
@@ -133,11 +137,22 @@
 			tabPage1.Controls.Add(labelModel);
 			tabPage1.Location = new Point(4, 22);
 			tabPage1.Name = "tabPage1";
-			tabPage1.Padding = new Padding(3);
+			tabPage1.Padding = new Padding(3, 3, 3, 3);
 			tabPage1.Size = new Size(631, 387);
 			tabPage1.TabIndex = 0;
 			tabPage1.Text = "Общие";
 			tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// buttonAddToDB
+			// 
+			buttonAddToDB.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			buttonAddToDB.Location = new Point(60, 308);
+			buttonAddToDB.Name = "buttonAddToDB";
+			buttonAddToDB.Size = new Size(141, 31);
+			buttonAddToDB.TabIndex = 12;
+			buttonAddToDB.Text = "Добавить в базу";
+			buttonAddToDB.UseVisualStyleBackColor = true;
+			buttonAddToDB.Click += buttonAddToDB_Click;
 			// 
 			// buttonChooseImage
 			// 
@@ -263,10 +278,10 @@
 			tabPage2.Controls.Add(label3);
 			tabPage2.Controls.Add(numericUpDownDiagonal);
 			tabPage2.Controls.Add(labelDiagonal);
-			tabPage2.Location = new Point(4, 22);
+			tabPage2.Location = new Point(4, 30);
 			tabPage2.Name = "tabPage2";
-			tabPage2.Padding = new Padding(3);
-			tabPage2.Size = new Size(631, 387);
+			tabPage2.Padding = new Padding(3, 3, 3, 3);
+			tabPage2.Size = new Size(631, 379);
 			tabPage2.TabIndex = 1;
 			tabPage2.Text = "Технические";
 			tabPage2.UseVisualStyleBackColor = true;
@@ -493,10 +508,10 @@
 			tabPage3.Controls.Add(label11);
 			tabPage3.Controls.Add(label10);
 			tabPage3.Controls.Add(maskedTextBoxDateOfProduction);
-			tabPage3.Location = new Point(4, 22);
+			tabPage3.Location = new Point(4, 30);
 			tabPage3.Name = "tabPage3";
-			tabPage3.Padding = new Padding(3);
-			tabPage3.Size = new Size(631, 387);
+			tabPage3.Padding = new Padding(3, 3, 3, 3);
+			tabPage3.Size = new Size(631, 379);
 			tabPage3.TabIndex = 2;
 			tabPage3.Text = "Специальные";
 			tabPage3.UseVisualStyleBackColor = true;
@@ -684,15 +699,6 @@
 			maskedTextBoxDateOfProduction.KeyUp += maskedTextBoxYearOfProduction_KeyUp;
 			maskedTextBoxDateOfProduction.Leave += maskedTextBoxYearOfProduction_Leave;
 			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Location = new Point(36, 34);
-			label2.Name = "label2";
-			label2.Size = new Size(95, 12);
-			label2.TabIndex = 2;
-			label2.Text = "строка поиска";
-			// 
 			// menuStrip1
 			// 
 			menuStrip1.BackColor = SystemColors.ControlLightLight;
@@ -738,13 +744,25 @@
 			AboutProgramToolStripMenuItem.Text = "О программе";
 			AboutProgramToolStripMenuItem.Click += AboutProgramToolStripMenuItem_Click;
 			// 
-			// dataGridView1
+			// buttonReloadDB
 			// 
-			dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView1.Location = new Point(12, 49);
-			dataGridView1.Name = "dataGridView1";
-			dataGridView1.Size = new Size(140, 389);
-			dataGridView1.TabIndex = 4;
+			buttonReloadDB.Location = new Point(11, 25);
+			buttonReloadDB.Name = "buttonReloadDB";
+			buttonReloadDB.Size = new Size(145, 18);
+			buttonReloadDB.TabIndex = 5;
+			buttonReloadDB.Text = "Обновить";
+			buttonReloadDB.UseVisualStyleBackColor = true;
+			buttonReloadDB.Click += buttonReloadDB_Click;
+			// 
+			// listBoxPhones
+			// 
+			listBoxPhones.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			listBoxPhones.FormattingEnabled = true;
+			listBoxPhones.Location = new Point(11, 49);
+			listBoxPhones.Name = "listBoxPhones";
+			listBoxPhones.Size = new Size(145, 382);
+			listBoxPhones.TabIndex = 6;
+			listBoxPhones.DoubleClick += listBoxPhones_DoubleClick;
 			// 
 			// PhoneShopForm
 			// 
@@ -752,10 +770,11 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = SystemColors.Control;
 			ClientSize = new Size(800, 450);
-			Controls.Add(dataGridView1);
-			Controls.Add(label2);
+			Controls.Add(listBoxPhones);
+			Controls.Add(buttonReloadDB);
 			Controls.Add(tabControl1);
 			Controls.Add(menuStrip1);
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			MainMenuStrip = menuStrip1;
 			Name = "PhoneShopForm";
 			Text = "PhoneShop";
@@ -780,7 +799,6 @@
 			((System.ComponentModel.ISupportInitialize)numericUpDownWarrantyPeriod).EndInit();
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -791,7 +809,6 @@
 		private TabPage tabPage1;
 		private TabPage tabPage2;
 		private TabPage tabPage3;
-		private Label label2;
 		private MenuStrip menuStrip1;
 		private ToolStripMenuItem FileToolStripMenuItem;
 		private ToolStripMenuItem AboutProgramToolStripMenuItem;
@@ -845,6 +862,8 @@
 		private TextBox textBoxPrice;
 		private MaskedTextBox maskedTextBoxPoints;
 		private Button buttonChooseImage;
-		private DataGridView dataGridView1;
+		private Button buttonReloadDB;
+		private Button buttonAddToDB;
+		private ListBox listBoxPhones;
 	}
 }

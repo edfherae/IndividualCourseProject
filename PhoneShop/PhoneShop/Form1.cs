@@ -1,12 +1,13 @@
 using Newtonsoft.Json;
-using System.Data.Entity;
 using System.Text;
 using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace PhoneShop
 {
 	public partial class PhoneShopForm : Form
 	{
+		AppDbContext dbContext = new();
 		// Свойства для получения значений формы
 		#region Общие
 		public string TextBoxModel => textBoxModel.Text;
@@ -102,7 +103,7 @@ namespace PhoneShop
 		//}
 		private void AboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("сделай отдельную форму", "achtung");
+			MessageBox.Show("Сделал студент группы ПВ318\n"+"Агашков Лев", "achtung");
 		}
 
 		private void trackBarOM_ValueChanged(object sender, EventArgs e)
@@ -220,6 +221,27 @@ namespace PhoneShop
 				pictureBoxPhoneImage.Refresh();
 			}
 		}
+		private void buttonAddToDB_Click(object sender, EventArgs e)
+		{
+			Phone phone = new(this);
+			dbContext.Phones.Add(phone);
+			dbContext.SaveChanges();
+			foreach (Phone ph in dbContext.Phones.ToList())
+				listBoxPhones.Items.Add(ph);
+		}
+
+		private void buttonReloadDB_Click(object sender, EventArgs e)
+		{
+			listBoxPhones.Items.Clear();
+			foreach (Phone ph in dbContext.Phones.ToList())
+				listBoxPhones.Items.Add(ph);
+		}
+
+		private void listBoxPhones_DoubleClick(object sender, EventArgs e)
+		{
+			if(listBoxPhones.SelectedIndex != -1)
+				this.FormFromPhone((Phone)listBoxPhones.SelectedItem);
+		}
 	}
 	public class Phone
 	{
@@ -227,6 +249,7 @@ namespace PhoneShop
 		public static string[] simTypes = { "Mini-SIM", "Micro-SIM", "Nano-SIM", "ESIM" };
 		public static string[] countries = { "Россия", "Украина", "Беларусь", "Камбоджа" };
 
+		public int Id { get; set; }
 		public string Model { get; set; }
 		public string Producer { get; set; }
 		public string Country { get; set; }
@@ -275,11 +298,18 @@ namespace PhoneShop
 			PromotionDiscount = form.PromotionDiscount;
 			PromotionPoints = form.PromotionPoints;
 		}
-
+		public override string ToString()
+		{
+			return $"{Id}. {Model}";
+		}
 	}
 	public class AppDbContext : DbContext
 	{
 		public DbSet<Phone> Phones { get; set; }
-		public AppDbContext() : base("name=DefaultConnection") { }
+		public AppDbContext() { Database.EnsureCreated(); }
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			optionsBuilder.UseSqlServer("Data Source=DESKTOP-OKGA20J\\SQLEXPRESS;Integrated Security=True; Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+		}
 	}
 }
