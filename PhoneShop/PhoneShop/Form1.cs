@@ -51,6 +51,8 @@ namespace PhoneShop
 			comboBoxProducers.Items.AddRange(Phone.produsers);
 			comboBoxSimType.Items.AddRange(Phone.simTypes);
 			comboBoxCountry.Items.AddRange(Phone.countries);
+			foreach (Phone ph in dbContext.Phones.ToList())
+				listBoxPhones.Items.Add(ph);
 		}
 		public void FormFromPhone(Phone phone) // init Form from Phone
 		{
@@ -75,10 +77,63 @@ namespace PhoneShop
 
 			maskedTextBoxDateOfProduction.Text = phone.DateOfProduction.ToString("dd.MM.yyyy");
 			numericUpDownWarrantyPeriod.Value = phone.WarrantyPeriod;
+			dateTimePickerWarrantyPeriodEnd.Value = MaskedTextBoxDateOfProduction.AddYears(phone.WarrantyPeriod);
 			textBoxPrice.Text = phone.Price.ToString();
-			if (phone.Points != null) numericUpDownPoints.Value = (decimal)phone.Points;
-			if (phone.PromotionDiscount != null) maskedTextBoxDiscount.Text = phone.PromotionDiscount.ToString();
-			if (phone.PromotionPoints != null) maskedTextBoxPoints.Text = phone.PromotionPoints.ToString();
+			if (phone.Points != null)
+			{
+				checkBoxPoints.Checked = true;
+				numericUpDownPoints.Value = (decimal)phone.Points;
+			}
+			if (phone.PromotionDiscount != null)
+			{
+				checkBoxPromotion.Checked = true;
+				rbPromotionDiscount.Checked = true;
+				maskedTextBoxDiscount.Enabled = true;
+				maskedTextBoxDiscount.Text = phone.PromotionDiscount.ToString();
+			}
+			else if (phone.PromotionPoints != null)
+			{
+				checkBoxPromotion.Checked = true;
+				rbPromotionPoints.Checked = true;
+				maskedTextBoxPoints.Enabled = true;
+				maskedTextBoxPoints.Text = phone.PromotionPoints.ToString();
+			}
+		}
+		private void ResetForm()
+		{
+			textBoxModel.ResetText();
+			comboBoxProducers.ResetText(); comboBoxProducers.SelectedIndex = -1;
+			comboBoxCountry.ResetText(); comboBoxCountry.SelectedIndex = -1;
+			dateTimePickerYearOfRelease.ResetText();
+			pictureBoxPhoneImage.ImageLocation = "";
+
+			numericUpDownDiagonal.ResetText();
+			numericUpDownNumberOfCameras.ResetText();
+			comboBoxSimType.ResetText(); comboBoxSimType.SelectedIndex = -1;
+			radioButton4G.Checked = false; radioButton5G.Checked = false;
+			trackBarRAM.Value = 1; labelRAM.Text = "1";
+			trackBarROM.Value = 16; labelROM.Text = "1";
+			numericUpDownWeight.ResetText();
+			richTextBoxAdditionalCharacteristics.ResetText();
+
+			maskedTextBoxDateOfProduction.ResetText();
+			numericUpDownWarrantyPeriod.ResetText();
+			dateTimePickerWarrantyPeriodEnd.ResetText();
+			textBoxPrice.ResetText();
+			checkBoxPoints.Checked = false;
+			numericUpDownPoints.ResetText();
+
+			checkBoxPromotion.Checked = false;
+
+			rbPromotionDiscount.Checked = false;
+			rbPromotionDiscount.Enabled = false;
+			maskedTextBoxDiscount.ResetText();
+			maskedTextBoxDiscount.Enabled = false;
+
+			rbPromotionPoints.Checked = false;
+			rbPromotionDiscount.Enabled = false;
+			maskedTextBoxPoints.ResetText();
+			maskedTextBoxDiscount.Enabled = false;
 		}
 		//public bool CheckNullAndChangeBackColor()
 		//{
@@ -103,22 +158,27 @@ namespace PhoneShop
 		//}
 		private void AboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Сделал студент группы ПВ318\n"+"Агашков Лев", "achtung");
+			MessageBox.Show("Сделал студент группы ПВ318\n" + "Агашков Лев", "achtung");
 		}
 
 		private void trackBarOM_ValueChanged(object sender, EventArgs e)
 		{
-			labelOM.Text = $"{trackBarRAM.Value} Гб";
+			labelRAM.Text = $"{trackBarRAM.Value} Гб";
 		}
 
 		private void trackBarPM_ValueChanged(object sender, EventArgs e)
 		{
-			labelPM.Text = $"{trackBarROM.Value} Гб";
+			labelROM.Text = $"{trackBarROM.Value} Гб";
 		}
 
 		private void maskedTextBoxYearOfProduction_KeyUp(object sender, KeyEventArgs e)
 		{
-			//string[] day_month_year = maskedTextBoxYearOfProduction.Text.Split('.');
+			DateTime date;
+			if (!DateTime.TryParse(maskedTextBoxDateOfProduction.Text, out date))
+			{
+				maskedTextBoxDateOfProduction.Text = "";
+				MessageBox.Show("Дата не соответствует формату", "achtung", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			}
 		}
 
 		private void numericUpDownWarrantyPeriod_ValueChanged(object sender, EventArgs e)
@@ -151,6 +211,7 @@ namespace PhoneShop
 		//только .json!!
 		private void ttmiLoad_Click(object sender, EventArgs e)
 		{
+			this.ResetForm();
 			OpenFileDialog ofd = new();
 			Phone phone = new();
 			if (ofd.ShowDialog() == DialogResult.OK)
@@ -223,11 +284,14 @@ namespace PhoneShop
 		}
 		private void buttonAddToDB_Click(object sender, EventArgs e)
 		{
-			Phone phone = new(this);
-			dbContext.Phones.Add(phone);
-			dbContext.SaveChanges();
-			foreach (Phone ph in dbContext.Phones.ToList())
-				listBoxPhones.Items.Add(ph);
+			if (MessageBox.Show("Вы уверены?", "achtung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				Phone phone = new(this);
+				dbContext.Phones.Add(phone);
+				dbContext.SaveChanges();
+				foreach (Phone ph in dbContext.Phones.ToList())
+					listBoxPhones.Items.Add(ph);
+			}
 		}
 
 		private void buttonReloadDB_Click(object sender, EventArgs e)
@@ -239,8 +303,24 @@ namespace PhoneShop
 
 		private void listBoxPhones_DoubleClick(object sender, EventArgs e)
 		{
-			if(listBoxPhones.SelectedIndex != -1)
+			if (listBoxPhones.SelectedIndex != -1)
 				this.FormFromPhone((Phone)listBoxPhones.SelectedItem);
+		}
+
+		private void buttonResetForm_Click(object sender, EventArgs e)
+		{
+			if (MessageBox.Show("Вы уверены?", "achtung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				this.ResetForm();
+		}
+
+		private void rbPromotionDiscount_CheckedChanged(object sender, EventArgs e)
+		{
+			maskedTextBoxDiscount.Enabled = rbPromotionDiscount.Checked;
+		}
+
+		private void rbPromotionPoints_CheckedChanged(object sender, EventArgs e)
+		{
+			maskedTextBoxPoints.Enabled = rbPromotionPoints.Checked;
 		}
 	}
 	public class Phone

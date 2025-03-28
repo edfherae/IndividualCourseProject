@@ -34,6 +34,7 @@ namespace PhoneShop
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhoneShopForm));
 			tabControl1 = new TabControl();
 			tabPage1 = new TabPage();
+			buttonResetForm = new Button();
 			buttonAddToDB = new Button();
 			buttonChooseImage = new Button();
 			dateTimePickerYearOfRelease = new DateTimePicker();
@@ -56,10 +57,10 @@ namespace PhoneShop
 			radioButton4G = new RadioButton();
 			label6 = new Label();
 			comboBoxSimType = new ComboBox();
-			labelPM = new Label();
+			labelROM = new Label();
 			trackBarROM = new TrackBar();
 			label5 = new Label();
-			labelOM = new Label();
+			labelRAM = new Label();
 			label4 = new Label();
 			trackBarRAM = new TrackBar();
 			numericUpDownNumberOfCameras = new NumericUpDown();
@@ -118,11 +119,12 @@ namespace PhoneShop
 			tabControl1.Location = new Point(158, 25);
 			tabControl1.Name = "tabControl1";
 			tabControl1.SelectedIndex = 0;
-			tabControl1.Size = new Size(639, 413);
+			tabControl1.Size = new Size(639, 419);
 			tabControl1.TabIndex = 0;
 			// 
 			// tabPage1
 			// 
+			tabPage1.Controls.Add(buttonResetForm);
 			tabPage1.Controls.Add(buttonAddToDB);
 			tabPage1.Controls.Add(buttonChooseImage);
 			tabPage1.Controls.Add(dateTimePickerYearOfRelease);
@@ -137,29 +139,45 @@ namespace PhoneShop
 			tabPage1.Controls.Add(labelModel);
 			tabPage1.Location = new Point(4, 22);
 			tabPage1.Name = "tabPage1";
-			tabPage1.Padding = new Padding(3, 3, 3, 3);
-			tabPage1.Size = new Size(631, 387);
+			tabPage1.Padding = new Padding(3);
+			tabPage1.Size = new Size(631, 393);
 			tabPage1.TabIndex = 0;
 			tabPage1.Text = "Общие";
 			tabPage1.UseVisualStyleBackColor = true;
 			// 
+			// buttonResetForm
+			// 
+			buttonResetForm.BackColor = Color.LightCoral;
+			buttonResetForm.FlatStyle = FlatStyle.Flat;
+			buttonResetForm.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			buttonResetForm.Location = new Point(250, 342);
+			buttonResetForm.Name = "buttonResetForm";
+			buttonResetForm.Size = new Size(145, 30);
+			buttonResetForm.TabIndex = 13;
+			buttonResetForm.Text = "Сбросить данные";
+			buttonResetForm.UseVisualStyleBackColor = false;
+			buttonResetForm.Click += buttonResetForm_Click;
+			// 
 			// buttonAddToDB
 			// 
+			buttonAddToDB.BackColor = Color.MediumAquamarine;
+			buttonAddToDB.FlatStyle = FlatStyle.Flat;
 			buttonAddToDB.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			buttonAddToDB.Location = new Point(60, 308);
+			buttonAddToDB.ForeColor = Color.Black;
+			buttonAddToDB.Location = new Point(21, 342);
 			buttonAddToDB.Name = "buttonAddToDB";
-			buttonAddToDB.Size = new Size(141, 31);
+			buttonAddToDB.Size = new Size(145, 30);
 			buttonAddToDB.TabIndex = 12;
 			buttonAddToDB.Text = "Добавить в базу";
-			buttonAddToDB.UseVisualStyleBackColor = true;
+			buttonAddToDB.UseVisualStyleBackColor = false;
 			buttonAddToDB.Click += buttonAddToDB_Click;
 			// 
 			// buttonChooseImage
 			// 
 			buttonChooseImage.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-			buttonChooseImage.Location = new Point(389, 338);
+			buttonChooseImage.Location = new Point(465, 342);
 			buttonChooseImage.Name = "buttonChooseImage";
-			buttonChooseImage.Size = new Size(134, 30);
+			buttonChooseImage.Size = new Size(145, 30);
 			buttonChooseImage.TabIndex = 11;
 			buttonChooseImage.Text = "Выбрать фото";
 			buttonChooseImage.UseVisualStyleBackColor = true;
@@ -268,20 +286,20 @@ namespace PhoneShop
 			tabPage2.Controls.Add(groupBoxCommunicationGeneration);
 			tabPage2.Controls.Add(label6);
 			tabPage2.Controls.Add(comboBoxSimType);
-			tabPage2.Controls.Add(labelPM);
+			tabPage2.Controls.Add(labelROM);
 			tabPage2.Controls.Add(trackBarROM);
 			tabPage2.Controls.Add(label5);
-			tabPage2.Controls.Add(labelOM);
+			tabPage2.Controls.Add(labelRAM);
 			tabPage2.Controls.Add(label4);
 			tabPage2.Controls.Add(trackBarRAM);
 			tabPage2.Controls.Add(numericUpDownNumberOfCameras);
 			tabPage2.Controls.Add(label3);
 			tabPage2.Controls.Add(numericUpDownDiagonal);
 			tabPage2.Controls.Add(labelDiagonal);
-			tabPage2.Location = new Point(4, 30);
+			tabPage2.Location = new Point(4, 22);
 			tabPage2.Name = "tabPage2";
-			tabPage2.Padding = new Padding(3, 3, 3, 3);
-			tabPage2.Size = new Size(631, 379);
+			tabPage2.Padding = new Padding(3);
+			tabPage2.Size = new Size(631, 393);
 			tabPage2.TabIndex = 1;
 			tabPage2.Text = "Технические";
 			tabPage2.UseVisualStyleBackColor = true;
@@ -383,15 +401,15 @@ namespace PhoneShop
 			comboBoxSimType.Size = new Size(139, 29);
 			comboBoxSimType.TabIndex = 11;
 			// 
-			// labelPM
+			// labelROM
 			// 
-			labelPM.AutoSize = true;
-			labelPM.BackColor = SystemColors.Control;
-			labelPM.Location = new Point(253, 161);
-			labelPM.Name = "labelPM";
-			labelPM.Size = new Size(34, 12);
-			labelPM.TabIndex = 10;
-			labelPM.Text = "16 Гб";
+			labelROM.AutoSize = true;
+			labelROM.BackColor = SystemColors.Control;
+			labelROM.Location = new Point(253, 161);
+			labelROM.Name = "labelROM";
+			labelROM.Size = new Size(34, 12);
+			labelROM.TabIndex = 10;
+			labelROM.Text = "16 Гб";
 			// 
 			// trackBarROM
 			// 
@@ -417,15 +435,15 @@ namespace PhoneShop
 			label5.TabIndex = 8;
 			label5.Text = "Постоянная память";
 			// 
-			// labelOM
+			// labelRAM
 			// 
-			labelOM.AutoSize = true;
-			labelOM.BackColor = SystemColors.Control;
-			labelOM.Location = new Point(255, 75);
-			labelOM.Name = "labelOM";
-			labelOM.Size = new Size(27, 12);
-			labelOM.TabIndex = 7;
-			labelOM.Text = "1 Гб";
+			labelRAM.AutoSize = true;
+			labelRAM.BackColor = SystemColors.Control;
+			labelRAM.Location = new Point(255, 75);
+			labelRAM.Name = "labelRAM";
+			labelRAM.Size = new Size(27, 12);
+			labelRAM.TabIndex = 7;
+			labelRAM.Text = "1 Гб";
 			// 
 			// label4
 			// 
@@ -508,10 +526,10 @@ namespace PhoneShop
 			tabPage3.Controls.Add(label11);
 			tabPage3.Controls.Add(label10);
 			tabPage3.Controls.Add(maskedTextBoxDateOfProduction);
-			tabPage3.Location = new Point(4, 30);
+			tabPage3.Location = new Point(4, 22);
 			tabPage3.Name = "tabPage3";
-			tabPage3.Padding = new Padding(3, 3, 3, 3);
-			tabPage3.Size = new Size(631, 379);
+			tabPage3.Padding = new Padding(3);
+			tabPage3.Size = new Size(631, 393);
 			tabPage3.TabIndex = 2;
 			tabPage3.Text = "Специальные";
 			tabPage3.UseVisualStyleBackColor = true;
@@ -571,6 +589,7 @@ namespace PhoneShop
 			rbPromotionPoints.TabIndex = 24;
 			rbPromotionPoints.Text = "Баллы";
 			rbPromotionPoints.UseVisualStyleBackColor = true;
+			rbPromotionPoints.CheckedChanged += rbPromotionPoints_CheckedChanged;
 			// 
 			// maskedTextBoxPoints
 			// 
@@ -591,6 +610,7 @@ namespace PhoneShop
 			rbPromotionDiscount.TabIndex = 23;
 			rbPromotionDiscount.Text = "Скидка";
 			rbPromotionDiscount.UseVisualStyleBackColor = true;
+			rbPromotionDiscount.CheckedChanged += rbPromotionDiscount_CheckedChanged;
 			// 
 			// checkBoxPromotion
 			// 
@@ -748,7 +768,7 @@ namespace PhoneShop
 			// 
 			buttonReloadDB.Location = new Point(11, 25);
 			buttonReloadDB.Name = "buttonReloadDB";
-			buttonReloadDB.Size = new Size(145, 18);
+			buttonReloadDB.Size = new Size(145, 22);
 			buttonReloadDB.TabIndex = 5;
 			buttonReloadDB.Text = "Обновить";
 			buttonReloadDB.UseVisualStyleBackColor = true;
@@ -756,11 +776,11 @@ namespace PhoneShop
 			// 
 			// listBoxPhones
 			// 
-			listBoxPhones.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+			listBoxPhones.Font = new Font("Segoe UI Semilight", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
 			listBoxPhones.FormattingEnabled = true;
 			listBoxPhones.Location = new Point(11, 49);
 			listBoxPhones.Name = "listBoxPhones";
-			listBoxPhones.Size = new Size(145, 382);
+			listBoxPhones.Size = new Size(145, 395);
 			listBoxPhones.TabIndex = 6;
 			listBoxPhones.DoubleClick += listBoxPhones_DoubleClick;
 			// 
@@ -827,8 +847,8 @@ namespace PhoneShop
 		private Label label3;
 		private Label label4;
 		private TrackBar trackBarRAM;
-		private Label labelOM;
-		private Label labelPM;
+		private Label labelRAM;
+		private Label labelROM;
 		private TrackBar trackBarROM;
 		private Label label5;
 		private ToolStripMenuItem ttmiSave;
@@ -865,5 +885,6 @@ namespace PhoneShop
 		private Button buttonReloadDB;
 		private Button buttonAddToDB;
 		private ListBox listBoxPhones;
+		private Button buttonResetForm;
 	}
 }
